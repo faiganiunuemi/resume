@@ -13,76 +13,81 @@
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
 
-\name{你的大名}
+\name{陈禹豪}
 
 \basicInfo{
-  \email{yuanbin2014@gmail.com} \textperiodcentered\ 
-  \phone{(+86) 131-221-87xxx} \textperiodcentered\ 
-  \linkedin[billryan8]{https://www.linkedin.com/in/billryan8}}
- 
+  \email{faiganiunuemichen@gmail.com} \textperiodcentered\
+  \phone{(+86) xxx-xxx-xxxxx} \textperiodcentered\
+  \github[faiganiunuemi]{https://github.com/faiganiunuemi}}
+
 \section{\faGraduationCap\  教育背景}
-\datedsubsection{\textbf{上海交通大学}, 上海}{2013 -- 至今}
-\textit{在读硕士研究生}\ 信息与通信工程, 预计 2016 年 3 月毕业
-\datedsubsection{\textbf{西安电子科技大学}, 西安, 陕西}{2009 -- 2013}
-\textit{学士}\ 通信工程
+\datedsubsection{\textbf{东北农业大学}, 哈尔滨}{2014 -- 2018}
+\textit{学士}\ 软件工程
 
-\section{\faUsers\ 实习/项目经历}
-\datedsubsection{\textbf{黑科技公司} 上海}{2015年3月 -- 2015年5月}
-\role{实习}{经理: 高富帅}
-xxx后端开发
+
+\section{\faUsers\ 项目经历}
+\datedsubsection{\textbf{得物}, 上海}{2019年11月 -- 至今}
+\role{实时计算专家}\
+
+\textbf{负责得物实时数仓的建设}
 \begin{itemize}
-  \item 实现了 xxx 特性
-  \item 后台资源占用率减少8\%
-  \item xxx
+  \item \textbf{流量数据}:负责实时解析并处理得物全域客户端上报原始埋点数据，按项目进行分流，对分流后数据做维度补全后分发到各业务域和离线使用。
+  \item \textbf{增长投放}:从0到1建设得物增长域硬广/软广实时数仓。站外归因数据通过媒体/账号/计划/创意等维度与投放成本数据关联， 再通过设备id关联站内流量数据，统计如CAC/激活/次流等核心指标，将指标按列更新，开发硬广/软广实时报表。
+  \item \textbf{用户标签}:负责得物用户实时特征（标签）开发。累计开发实时用户标签100+，为研发/运营在人群push发券，人群check等场景提供准确稳定的实时数据。
+  \item \textbf{交易业务}:负责开发得物交易域订单的实时数据，通过子订单流关联支付流加支付维表的方式解决双流关联状态状态周期过长导致状态过大的问题。
 \end{itemize}
 
-\datedsubsection{\textbf{分布式科学上网姿势}}{2014年6月 -- 至今}
-\role{Golang, Linux}{个人项目，和富帅糕合作开发}
-\begin{onehalfspacing}
-分布式负载均衡科学上网姿势, https://github.com/cyfdecyf/cow
+\textbf{负责得物实时数仓稳定性建设}
 \begin{itemize}
-  \item 修复了连接未正常关闭导致文件描述符耗尽的 bug
-  \item 使用Chord 哈希 URL, 实现稳定可靠地分流
-  \item xxx (尽量使用量化的客观结果)
+  \item \textbf{大促压测}:负责得物大促期间实时任务流量压测，根据预估流量压测出实时任务最优吞吐，提前发现任务性能瓶颈和周边组件的稳定性隐患。
+  \item \textbf{主备链路}:核心场景P0任务的构造主备双链路，生产双版本数据可用，因变更问题10分钟内可恢复，提供可快速回滚的能力。
+  \item \textbf{外部稳定}:联合计算引擎，容器，运维团队保证实时任务的外部组件稳定性。通过多网络可用区/多集群/多资源池，优化写入存储引擎参数和写入方式，解决因外部资源/调度/数据库而导致的不可用的问题。
 \end{itemize}
-\end{onehalfspacing}
 
-\datedsubsection{\textbf{\LaTeX\ 简历模板}}{2015 年5月 -- 至今}
-\role{\LaTeX, Python}{个人项目}
-\begin{onehalfspacing}
-优雅的 \LaTeX\ 简历模板, https://github.com/billryan/resume
+\textbf{负责得物实时数仓从阿里云到自建平台任务迁移}
 \begin{itemize}
-  \item 容易定制和扩展
-  \item 完善的 Unicode 字体支持，使用 \XeLaTeX\ 编译
-  \item 支持 FontAwesome 4.5.0
+  \item \textbf{任务迁移}:负责得物从阿里云实时计算平台迁移到自建Flink计算平台以及自建Flink任务版本升级/网络多可用区/,总任务4000+，总CU数30000+，个人累计迁移任务500+,迁移CU数10000+。
+  \item \textbf{引擎修复}:解决在迁移过程中因计算引擎导致的数据结果不一致问题。如Flink Sql1.13版本中在Sql Optimize过程中 logical\_rewrite阶段没有正确合并FlinkLogicalCalc导致最终无法生成Deduplicate算子的问题。
+  \item \textbf{特性开发}:对标阿里云设计并开发得物Flink热部署功能,通过新增JobRestartingHandler入口修改作业并行度和启动参数，更改Dispatcher/JobMaster等组件支持热更新功能，为Flink提供快速的资源扩缩容能力。
+  \item \textbf{技术探索}:得物实时数仓客服域基于Paimon的实时湖仓建设,通过Partial-Update引擎解决Flink在多表Join下状态失效的问题。
 \end{itemize}
-\end{onehalfspacing}
 
-% Reference Test
-%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-%An xxx optimized for xxx\cite{verma2015large}
-%\begin{itemize}
-%  \item main contribution
-%\end{itemize}
+\textbf{负责得物实时计算的数据血缘和数据治理}
+\begin{itemize}
+  \item \textbf{数据血缘}:建设得物实时数仓的数据血缘系统，通过解析FlinkSql生成的RelNode获取实时数仓Table粒度血缘，累计解析任务4000+，提供实时数据地图查询资产上下游，为数据治理提供可靠的元数据。
+  \item \textbf{成本治理}:通过收集Flink任务每日的计算，存储成本和Cpu利用率等指标，统计实时数仓各业务域计算和存储成本，基于Flink sql最佳实践准则，治理语法/参数不合理导致的任务资源浪费，节省实时数仓的计算/存储成本。
+  \item \textbf{资产管理}:基于数据血缘和数据库审计日志治理存量无效化资产和数据的生命周期，增量资产严格按照已有开发规范执行，减少存量无效资产，同时控制增量资产，将资产增速在合理的增长范围。
+\end{itemize}
+
+\textbf{负责得物实时数仓的提效工具建设}
+\begin{itemize}
+  \item \textbf{模版平台}:基于Flink的最佳实践开发平台化产品，用户选择数据资产和提供业务逻辑，帮助用户自动生成Flink任务，降低使用Flink的门槛，累计生成任务500+
+  \item \textbf{数据演练}:基于数据采样或用户提供源表/维表测试数据和作业逻辑，开发支持Append/Upsert类型的数据演练Sink回收测试数据，自动生成Flink任务，通过Codegen编译并运行本地Flink任务。累计测试任务500+
+  \item \textbf{实时DQC}:基于上游ADS层数据指标加自定义DQC规则指标，开发通用QL表达式UDF，自动生成Flink任务，消费数据并拦截异常消息后发送告警。累计服务任务100+
+\end{itemize}
+
+
+\datedsubsection{\textbf{便利蜂}, 北京}{2018年6月 -- 2019年11月}
+\role{数据研发}\
+\textbf{数据平台研发}
+\begin{itemize}
+  \item \textbf{平台开发}:基于Flink的binlog接入系统
+  \item \textbf{需求开发}:基于Flink计算实时报表数据
+\end{itemize}
 
 \section{\faCogs\ IT 技能}
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
-  \item 编程语言: C == Python > C++ > Java
-  \item 平台: Linux
-  \item 开发: xxx
+  \item 编程语言: sql,Java
+  \item 算法: 掌握常用的数据结构与算法,掌握flink sql,flink runtime 模块基本原理,有大量的flink和Paimon源码阅读经验。
+  \item 技能: Flink,Paimon,Spark,Kafka,Pulsar,Hbase,Starrocks
 \end{itemize}
-
-\section{\faHeartO\ 获奖情况}
-\datedline{\textit{第一名}, xxx 比赛}{2013 年6 月}
-\datedline{其他奖项}{2015}
 
 \section{\faInfo\ 其他}
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
-  \item 技术博客: http://blog.yours.me
-  \item GitHub: https://github.com/username
-  \item 语言: 英语 - 熟练(TOEFL xxx)
+  \item 工作: 对复杂问题感兴趣，喜欢技术钻研。
+  \item 生活: 喜欢健身,户外运动,音乐,游戏。
 \end{itemize}
 
 %% Reference
